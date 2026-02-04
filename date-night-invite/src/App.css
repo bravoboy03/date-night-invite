@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  background: #000;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* Page */
+.page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* START OVERLAY */
+.start-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #2b0000, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.start-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+
+/* ❤️ Heartbeat animation */
+.heartbeat {
+  margin-top: 20px;
+  padding: 14px 34px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.1); }
+  40%  { transform: scale(1); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* CENTER BOX */
+.center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px 35px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  width: min(420px, 90vw);
+  z-index: 3;
+}
+
+/* Name animation */
+.name span {
+  display: inline-block;
+  font-size: clamp(42px, 8vw, 64px);
+  font-weight: bold;
+  opacity: 0;
+  animation: rise 0.6s forwards;
+}
+
+@keyframes rise {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+  margin: 20px 0 35px;
+}
+
+/* Buttons */
+.buttons {
+  position: relative;
+  height: 140px;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  position: absolute;
+  background: #333;
+  color: white;
+}
+
+/* Details */
+.details {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+/* Candle ambience */
+.candle-glow {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 180, 100, 0.35),
+    rgba(0, 0, 0, 0.9)
+  );
+  animation: flicker 3s infinite;
+  z-index: 1;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+/* Candles */
+.candles {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 2;
+}
+
+.candle {
+  width: 20px;
+  height: 60px;
+  background: #fff3c4;
+  border-radius: 6px;
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 12px;
+  height: 18px;
+  background: orange;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: flame 0.15s infinite alternate;
+}
+
+@keyframes flame {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-50%) scale(1.1); }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  transform: rotate(45deg);
+  animation: floatUp linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before { top: -10px; }
+.heart::after { left: -10px; }
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
