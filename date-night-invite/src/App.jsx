@@ -28,7 +28,7 @@ function App() {
 
   const startExperience = () => {
     const audio = audioRef.current;
-    audio.volume = 0.6;
+    audio.volume = 0.7;
     audio.play();
     setStarted(true);
   };
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="page">
-      <audio ref={audioRef} src="/music.mp3" loop />
+<audio ref={audioRef} src={`${import.meta.env.BASE_URL}music.mp3`} loop />
 
       {!started && (
         <div className="start-overlay">
@@ -101,11 +101,12 @@ function App() {
               <div className="details">
                 <h1>🥰 It’s a Date! 🥰</h1>
                 <p>
-                  Maitri, loving you is my favorite thing in the world.
+                  Maitri, loving you is my favorite thing in the world. 
+                  I am still in denial how lucky I am to have you in my life.
                   Thank you for being my forever Valentine ❤️
                 </p>
                 <p><strong>📅</strong> February 14</p>
-                <p><strong>⏰</strong> 7:30 PM</p>
+                <p><strong>⏰</strong> 8:30 PM</p>
                 <p><strong>📍</strong> Our favorite place 🕯️</p>
               </div>
             )}
